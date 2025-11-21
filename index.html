@@ -15,9 +15,22 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
         
+        :root {
+            --primary-color: #1a3a5f;
+            --secondary-color: #4dabf7;
+            --success-color: #40c057;
+            --warning-color: #fab005;
+            --danger-color: #fa5252;
+            --light-color: #f5f7fa;
+            --dark-color: #333;
+            --gray-color: #6c757d;
+            --border-color: #e1e5eb;
+        }
+        
         body {
-            background-color: #f5f7fa;
-            color: #333;
+            background-color: var(--light-color);
+            color: var(--dark-color);
+            line-height: 1.6;
         }
         
         .container {
@@ -31,13 +44,14 @@
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            background: linear-gradient(135deg, #1a3a5f 0%, #0d1f33 100%);
+            background: linear-gradient(135deg, var(--primary-color) 0%, #0d1f33 100%);
+            padding: 20px;
         }
         
         .login-box {
             background: white;
             border-radius: 10px;
-            padding: 40px;
+            padding: 30px;
             width: 100%;
             max-width: 400px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.2);
@@ -45,16 +59,16 @@
         
         .login-logo {
             text-align: center;
-            margin-bottom: 30px;
+            margin-bottom: 25px;
         }
         
         .login-logo h1 {
             font-size: 28px;
-            color: #1a3a5f;
+            color: var(--primary-color);
         }
         
         .login-logo span {
-            color: #4dabf7;
+            color: var(--secondary-color);
         }
         
         .login-form .form-group {
@@ -78,14 +92,14 @@
         }
         
         .login-form input:focus {
-            border-color: #4dabf7;
+            border-color: var(--secondary-color);
             outline: none;
         }
         
         .login-btn {
             width: 100%;
             padding: 12px;
-            background-color: #4dabf7;
+            background-color: var(--secondary-color);
             color: white;
             border: none;
             border-radius: 4px;
@@ -103,17 +117,20 @@
             text-align: center;
             margin-top: 20px;
             font-size: 14px;
-            color: #6c757d;
+            color: var(--gray-color);
         }
         
         /* Sidebar */
         .sidebar {
             width: 250px;
-            background: linear-gradient(180deg, #1a3a5f 0%, #0d1f33 100%);
+            background: linear-gradient(180deg, var(--primary-color) 0%, #0d1f33 100%);
             color: white;
             padding: 20px 0;
             box-shadow: 2px 0 5px rgba(0,0,0,0.1);
             display: none;
+            transition: transform 0.3s ease;
+            z-index: 1000;
+            position: relative;
         }
         
         .logo {
@@ -128,7 +145,7 @@
         }
         
         .logo span {
-            color: #4dabf7;
+            color: var(--secondary-color);
         }
         
         .nav-menu {
@@ -149,7 +166,7 @@
         
         .nav-item.active {
             background-color: #2a4a6f;
-            border-left: 4px solid #4dabf7;
+            border-left: 4px solid var(--secondary-color);
         }
         
         .nav-item i {
@@ -158,12 +175,28 @@
             text-align: center;
         }
         
+        /* Mobile Menu Toggle */
+        .mobile-menu-toggle {
+            display: none;
+            position: fixed;
+            top: 15px;
+            left: 15px;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            padding: 8px 12px;
+            z-index: 1100;
+            font-size: 18px;
+        }
+        
         /* Main Content */
         .main-content {
             flex: 1;
             padding: 20px;
             overflow-y: auto;
             display: none;
+            transition: margin-left 0.3s ease;
         }
         
         .header {
@@ -172,7 +205,9 @@
             align-items: center;
             margin-bottom: 30px;
             padding-bottom: 15px;
-            border-bottom: 1px solid #e1e5eb;
+            border-bottom: 1px solid var(--border-color);
+            flex-wrap: wrap;
+            gap: 15px;
         }
         
         .user-info {
@@ -184,7 +219,7 @@
             width: 40px;
             height: 40px;
             border-radius: 50%;
-            background-color: #4dabf7;
+            background-color: var(--secondary-color);
             color: white;
             display: flex;
             align-items: center;
@@ -224,7 +259,7 @@
         
         .card h3 {
             font-size: 14px;
-            color: #6c757d;
+            color: var(--gray-color);
             margin-bottom: 10px;
         }
         
@@ -234,15 +269,15 @@
         }
         
         .card.performance .value {
-            color: #40c057;
+            color: var(--success-color);
         }
         
         .card.risk .value {
-            color: #fa5252;
+            color: var(--danger-color);
         }
         
         .card.time .value {
-            color: #4dabf7;
+            color: var(--secondary-color);
         }
         
         /* Section Styles */
@@ -262,16 +297,18 @@
         .section-title {
             font-size: 18px;
             margin-bottom: 20px;
-            color: #1a3a5f;
+            color: var(--primary-color);
             display: flex;
             justify-content: space-between;
             align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
         }
         
         /* Chart Container */
         .chart-container {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 20px;
             margin-top: 20px;
         }
@@ -286,7 +323,7 @@
         .chart-card h3 {
             font-size: 16px;
             margin-bottom: 15px;
-            color: #1a3a5f;
+            color: var(--primary-color);
         }
         
         .chart-wrapper {
@@ -297,7 +334,7 @@
         /* Form Styles */
         .client-form, .config-form {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 20px;
         }
         
@@ -322,21 +359,30 @@
         
         .btn {
             padding: 10px 20px;
-            background-color: #4dabf7;
+            background-color: var(--secondary-color);
             color: white;
             border: none;
             border-radius: 4px;
             cursor: pointer;
             font-weight: 500;
-            transition: background 0.3s;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
         }
         
         .btn:hover {
             background-color: #339af0;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        .btn:active {
+            transform: translateY(0);
         }
         
         .btn-success {
-            background-color: #40c057;
+            background-color: var(--success-color);
         }
         
         .btn-success:hover {
@@ -344,7 +390,7 @@
         }
         
         .btn-warning {
-            background-color: #fab005;
+            background-color: var(--warning-color);
         }
         
         .btn-warning:hover {
@@ -352,7 +398,7 @@
         }
         
         .btn-danger {
-            background-color: #fa5252;
+            background-color: var(--danger-color);
         }
         
         .btn-danger:hover {
@@ -360,7 +406,7 @@
         }
         
         .btn-secondary {
-            background-color: #6c757d;
+            background-color: var(--gray-color);
         }
         
         .btn-secondary:hover {
@@ -373,7 +419,7 @@
         }
         
         .btn-sm {
-            padding: 5px 10px;
+            padding: 6px 12px;
             font-size: 12px;
         }
         
@@ -415,6 +461,7 @@
             justify-content: space-between;
             padding: 10px 0;
             border-bottom: 1px solid #e9ecef;
+            flex-wrap: wrap;
         }
         
         .factor-name {
@@ -426,18 +473,23 @@
         }
         
         .positive {
-            color: #40c057;
+            color: var(--success-color);
         }
         
         .negative {
-            color: #fa5252;
+            color: var(--danger-color);
         }
         
         /* Table Styles */
+        .table-container {
+            overflow-x: auto;
+            margin-top: 15px;
+        }
+        
         .table {
             width: 100%;
             border-collapse: collapse;
-            margin-top: 15px;
+            min-width: 600px;
         }
         
         .table th, .table td {
@@ -461,6 +513,7 @@
             border-radius: 20px;
             font-size: 12px;
             font-weight: 500;
+            display: inline-block;
         }
         
         .status-approved {
@@ -481,7 +534,7 @@
         /* Security Settings */
         .security-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 20px;
         }
         
@@ -489,12 +542,12 @@
             background: #f8f9fa;
             border-radius: 8px;
             padding: 20px;
-            border-left: 4px solid #4dabf7;
+            border-left: 4px solid var(--secondary-color);
         }
         
         .security-card h3 {
             margin-bottom: 10px;
-            color: #1a3a5f;
+            color: var(--primary-color);
         }
         
         .toggle-switch {
@@ -536,7 +589,7 @@
         }
         
         input:checked + .slider {
-            background-color: #4dabf7;
+            background-color: var(--secondary-color);
         }
         
         input:checked + .slider:before {
@@ -552,15 +605,16 @@
             width: 100%;
             height: 100%;
             background-color: rgba(0,0,0,0.5);
-            z-index: 1000;
+            z-index: 2000;
             justify-content: center;
             align-items: center;
+            padding: 20px;
         }
         
         .modal-content {
             background: white;
             border-radius: 8px;
-            width: 90%;
+            width: 100%;
             max-width: 600px;
             max-height: 90vh;
             overflow-y: auto;
@@ -577,7 +631,7 @@
         
         .modal-header h2 {
             margin: 0;
-            color: #1a3a5f;
+            color: var(--primary-color);
         }
         
         .close-modal {
@@ -585,7 +639,7 @@
             border: none;
             font-size: 24px;
             cursor: pointer;
-            color: #6c757d;
+            color: var(--gray-color);
         }
         
         .modal-body {
@@ -598,6 +652,7 @@
             display: flex;
             justify-content: flex-end;
             gap: 10px;
+            flex-wrap: wrap;
         }
         
         /* Analysis History */
@@ -609,6 +664,8 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
         }
         
         .history-info h4 {
@@ -620,7 +677,22 @@
             gap: 10px;
         }
         
-        /* Responsive */
+        /* =========================== */
+        /* MEDIA QUERIES - RESPONSIVE */
+        /* =========================== */
+        
+        /* Tablets y pantallas medianas */
+        @media (max-width: 1024px) {
+            .sidebar {
+                width: 220px;
+            }
+            
+            .chart-container {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        
+        /* Tablets pequeñas y móviles grandes */
         @media (max-width: 768px) {
             .container {
                 flex-direction: column;
@@ -629,23 +701,204 @@
             .sidebar {
                 width: 100%;
                 height: auto;
+                position: fixed;
+                transform: translateX(-100%);
+            }
+            
+            .sidebar.active {
+                transform: translateX(0);
+            }
+            
+            .mobile-menu-toggle {
+                display: block;
+            }
+            
+            .main-content {
+                margin-left: 0;
+                padding: 15px;
+            }
+            
+            .header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .user-info {
+                width: 100%;
+                justify-content: space-between;
+            }
+            
+            .dashboard-cards {
+                grid-template-columns: 1fr 1fr;
+            }
+            
+            .chart-container {
+                grid-template-columns: 1fr;
             }
             
             .client-form, .config-form, .security-grid {
                 grid-template-columns: 1fr;
             }
             
+            .section {
+                padding: 20px;
+            }
+            
             .modal-content {
                 width: 95%;
             }
             
-            .chart-container {
+            .factor-item {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .factor-impact {
+                margin-top: 5px;
+            }
+            
+            .history-item {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .history-actions {
+                width: 100%;
+                justify-content: flex-end;
+                margin-top: 10px;
+            }
+        }
+        
+        /* Móviles pequeños */
+        @media (max-width: 576px) {
+            .login-box {
+                padding: 20px;
+            }
+            
+            .dashboard-cards {
                 grid-template-columns: 1fr;
+            }
+            
+            .section {
+                padding: 15px;
+            }
+            
+            .section-title {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .chart-wrapper {
+                height: 250px;
+            }
+            
+            .modal-body {
+                padding: 15px;
+            }
+            
+            .modal-footer {
+                padding: 15px;
+                flex-direction: column;
+            }
+            
+            .modal-footer .btn {
+                width: 100%;
+            }
+            
+            .btn-sm {
+                padding: 5px 8px;
+                font-size: 11px;
+            }
+            
+            .table th, .table td {
+                padding: 8px 10px;
+            }
+            
+            .score-value {
+                font-size: 36px;
+            }
+            
+            .risk-score {
+                padding: 15px;
+            }
+        }
+        
+        /* Móviles muy pequeños */
+        @media (max-width: 380px) {
+            .main-content {
+                padding: 10px;
+            }
+            
+            .header h1 {
+                font-size: 20px;
+            }
+            
+            .card {
+                padding: 15px;
+            }
+            
+            .card .value {
+                font-size: 20px;
+            }
+            
+            .chart-card {
+                padding: 15px;
+            }
+            
+            .chart-wrapper {
+                height: 200px;
+            }
+            
+            .form-control {
+                padding: 8px 12px;
+            }
+            
+            .btn {
+                padding: 8px 16px;
+            }
+        }
+        
+        /* Orientación landscape en móviles */
+        @media (max-height: 500px) and (orientation: landscape) {
+            .login-container {
+                padding: 10px;
+            }
+            
+            .login-box {
+                padding: 20px;
+            }
+            
+            .sidebar {
+                overflow-y: auto;
+                max-height: 100vh;
+            }
+            
+            .modal-content {
+                max-height: 80vh;
+            }
+        }
+        
+        /* Pantallas muy grandes */
+        @media (min-width: 1600px) {
+            .container {
+                max-width: 1600px;
+                margin: 0 auto;
+            }
+            
+            .sidebar {
+                width: 280px;
+            }
+            
+            .main-content {
+                padding: 30px;
             }
         }
     </style>
 </head>
 <body>
+    <!-- Botón de menú móvil -->
+    <button class="mobile-menu-toggle" id="mobileMenuToggle">☰</button>
+    
     <!-- Login Screen -->
     <div class="login-container" id="loginScreen">
         <div class="login-box">
@@ -653,11 +906,6 @@
                 <h1>NEX<span>US</span></h1>
                 <p>Sistema de Predicción de Riesgo Crediticio</p>
             </div>
-            <!-- 
-                COMENTARIO: El sistema de autenticación implementa medidas de seguridad
-                básicas para proteger el acceso al dashboard, cumpliendo con las
-                buenas prácticas OWASP A07 sobre identificación y autenticación.
-            -->
             <form class="login-form" id="loginForm">
                 <div class="form-group">
                     <label for="username">Usuario</label>
@@ -706,10 +954,12 @@
             <div class="header">
                 <h1 id="sectionTitle">Dashboard de Análisis de Riesgo</h1>
                 <div class="user-info">
-                    <div class="user-avatar" id="userAvatar">AR</div>
-                    <div>
-                        <div id="userName">Ana Rodríguez</div>
-                        <div style="font-size: 12px; color: #6c757d;">Analista de Riesgo</div>
+                    <div style="display: flex; align-items: center;">
+                        <div class="user-avatar" id="userAvatar">AR</div>
+                        <div>
+                            <div id="userName">Ana Rodríguez</div>
+                            <div style="font-size: 12px; color: var(--gray-color);">Analista de Riesgo</div>
+                        </div>
                     </div>
                     <button class="logout-btn" id="logoutBtn">Cerrar Sesión</button>
                 </div>
@@ -740,12 +990,6 @@
                         <p>Este mes</p>
                     </div>
                 </div>
-                
-                <!-- 
-                    COMENTARIO: Los gráficos proporcionan una visualización inmediata
-                    del desempeño del sistema, permitiendo identificar tendencias
-                    y patrones en los datos de riesgo crediticio.
-                -->
                 
                 <!-- Gráficos de Resultados -->
                 <div class="chart-container">
@@ -780,20 +1024,22 @@
                     <div class="section-title">
                         <h2>Actividad Reciente</h2>
                     </div>
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th>Cliente</th>
-                                <th>Fecha</th>
-                                <th>Monto</th>
-                                <th>Score</th>
-                                <th>Estado</th>
-                            </tr>
-                        </thead>
-                        <tbody id="recentActivityTable">
-                            <!-- Las filas se generarán dinámicamente -->
-                        </tbody>
-                    </table>
+                    <div class="table-container">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Cliente</th>
+                                    <th>Fecha</th>
+                                    <th>Monto</th>
+                                    <th>Score</th>
+                                    <th>Estado</th>
+                                </tr>
+                            </thead>
+                            <tbody id="recentActivityTable">
+                                <!-- Las filas se generarán dinámicamente -->
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
             
@@ -804,43 +1050,32 @@
                     <button class="btn" id="addClientBtn">Agregar Cliente</button>
                 </div>
                 
-                <!-- 
-                    COMENTARIO: La gestión de clientes permite mantener un registro
-                    centralizado de información, reemplazando el sistema anterior
-                    basado en hojas de cálculo dispersas y mejorando la trazabilidad.
-                -->
-                
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Nombre</th>
-                            <th>Ingreso Mensual</th>
-                            <th>Deuda Actual</th>
-                            <th>Historial (meses)</th>
-                            <th>Última Solicitud</th>
-                            <th>Acciones</th>
-                        </tr>
-                    </thead>
-                    <tbody id="clientsTable">
-                        <!-- Las filas se generarán dinámicamente -->
-                    </tbody>
-                </table>
+                <div class="table-container">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Nombre</th>
+                                <th>Ingreso Mensual</th>
+                                <th>Deuda Actual</th>
+                                <th>Historial (meses)</th>
+                                <th>Última Solicitud</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody id="clientsTable">
+                            <!-- Las filas se generarán dinámicamente -->
+                        </tbody>
+                    </table>
+                </div>
             </div>
             
             <!-- Analysis Section -->
             <div class="section" id="analysis-section">
                 <div class="section-title">
                     <h2>Análisis de Riesgo Crediticio</h2>
-                    <span style="font-size: 14px; color: #6c757d;">Sistema SPR-IA</span>
+                    <span style="font-size: 14px; color: var(--gray-color);">Sistema SPR-IA</span>
                 </div>
-                
-                <!-- 
-                    COMENTARIO: Este formulario aborda el problema de la complejidad 
-                    en el proceso actual de análisis, proporcionando una interfaz 
-                    unificada para ingresar datos del cliente que anteriormente 
-                    requerían múltiples hojas de cálculo y scripts separados.
-                -->
                 
                 <form id="riskAnalysisForm">
                     <div class="client-form">
@@ -888,13 +1123,6 @@
                             </select>
                         </div>
                         
-                        <!-- 
-                            COMENTARIO: El botón de análisis simula la integración con 
-                            el modelo de ML que procesa los datos en tiempo real y 
-                            devuelve un score de riesgo en menos de 10 segundos, 
-                            cumpliendo con uno de los objetivos principales del proyecto NEXUS.
-                        -->
-                        
                         <button type="button" id="analyzeBtn" class="btn btn-block">Analizar Riesgo</button>
                     </div>
                 </form>
@@ -905,7 +1133,7 @@
                         <h2>Resultados del Análisis</h2>
                         <div>
                             <button class="btn btn-success" id="approveBtn">Aprobar</button>
-                            <button class="btn btn-danger" id="rejectBtn" style="margin-left: 10px;">Rechazar</button>
+                            <button class="btn btn-danger" id="rejectBtn">Rechazar</button>
                         </div>
                     </div>
                     
@@ -914,13 +1142,6 @@
                         <div class="score-value" id="scoreValue">65</div>
                         <div>RIESGO MODERADO</div>
                     </div>
-                    
-                    <!-- 
-                        COMENTARIO: Esta sección de "Factores de Decisión" aborda el requisito 
-                        de explicabilidad del modelo, proporcionando transparencia en cómo 
-                        se calcula el score y cumpliendo con regulaciones financieras que 
-                        exigen justificación para las decisiones crediticias.
-                    -->
                     
                     <div class="factors-list">
                         <h3>Factores de Decisión</h3>
@@ -941,12 +1162,6 @@
                             <div class="factor-impact negative">Alto impacto negativo</div>
                         </div>
                     </div>
-                    
-                    <!-- 
-                        COMENTARIO: El registro de auditoría cumple con los requisitos de 
-                        trazabilidad y cumplimiento normativo, permitiendo rastrear cada 
-                        decisión tomada en el sistema para futuras auditorías.
-                    -->
                     
                     <div style="margin-top: 30px; padding: 15px; background: #f8f9fa; border-radius: 4px;">
                         <h4>Registro de Auditoría</h4>
@@ -973,13 +1188,6 @@
                 <div class="section-title">
                     <h2>Configuración del Sistema</h2>
                 </div>
-                
-                <!-- 
-                    COMENTARIO: La configuración centralizada del sistema permite
-                    ajustar parámetros críticos del modelo de ML y los umbrales
-                    de decisión, facilitando el mantenimiento y la optimización
-                    continua del sistema SPR-IA.
-                -->
                 
                 <form class="config-form" id="systemConfigForm">
                     <div class="form-group">
@@ -1028,12 +1236,6 @@
                 <div class="section-title">
                     <h2>Configuración de Seguridad</h2>
                 </div>
-                
-                <!-- 
-                    COMENTARIO: Esta sección implementa controles de seguridad
-                    que cumplen con las buenas prácticas OWASP y la normativa
-                    chilena de protección de datos y delitos informáticos.
-                -->
                 
                 <div class="security-grid">
                     <div class="security-card">
@@ -1091,19 +1293,21 @@
                 
                 <div style="margin-top: 30px;">
                     <h3>Registros de Seguridad</h3>
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th>Fecha/Hora</th>
-                                <th>Evento</th>
-                                <th>Usuario</th>
-                                <th>IP</th>
-                            </tr>
-                        </thead>
-                        <tbody id="securityLogsTable">
-                            <!-- Las filas se generarán dinámicamente -->
-                        </tbody>
-                    </table>
+                    <div class="table-container">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Fecha/Hora</th>
+                                    <th>Evento</th>
+                                    <th>Usuario</th>
+                                    <th>IP</th>
+                                </tr>
+                            </thead>
+                            <tbody id="securityLogsTable">
+                                <!-- Las filas se generarán dinámicamente -->
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1272,7 +1476,7 @@
         // FUNCIONALIDADES PRINCIPALES
         // ===========================
 
-        // Manejo del login
+        // Manejo del login - CORREGIDO
         loginForm.addEventListener('submit', function(e) {
             e.preventDefault();
             
@@ -2047,6 +2251,54 @@
         
         cancelConfirmBtn.addEventListener('click', function() {
             confirmModal.style.display = 'none';
+        });
+        
+        // ===========================
+        // MEJORAS DE RESPONSIVIDAD
+        // ===========================
+        
+        // Elementos del DOM para responsividad
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        
+        // Alternar menú móvil
+        mobileMenuToggle.addEventListener('click', function() {
+            sidebar.classList.toggle('active');
+        });
+        
+        // Cerrar menú móvil al hacer clic en un enlace
+        document.querySelectorAll('.nav-item').forEach(item => {
+            item.addEventListener('click', function() {
+                if (window.innerWidth <= 768) {
+                    sidebar.classList.remove('active');
+                }
+            });
+        });
+        
+        // Cerrar menú móvil al hacer clic fuera de él
+        document.addEventListener('click', function(event) {
+            if (window.innerWidth <= 768 && 
+                !sidebar.contains(event.target) && 
+                !mobileMenuToggle.contains(event.target) &&
+                sidebar.classList.contains('active')) {
+                sidebar.classList.remove('active');
+            }
+        });
+        
+        // Ajustar gráficos al cambiar tamaño de ventana
+        window.addEventListener('resize', function() {
+            if (window.innerWidth > 768 && sidebar.classList.contains('active')) {
+                sidebar.classList.remove('active');
+            }
+            
+            // Re-dibujar gráficos si es necesario
+            if (typeof riskDistributionChart !== 'undefined') {
+                setTimeout(() => {
+                    riskDistributionChart.resize();
+                    approvalTrendChart.resize();
+                    riskFactorsChart.resize();
+                    metricsComparisonChart.resize();
+                }, 300);
+            }
         });
         
         // ===========================
